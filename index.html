@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICT Summer Bingo – Key Stage 2</title>
+<title>ICT Summer Bingo – Key Stage 1</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
@@ -11,7 +11,7 @@
 
   body {
     font-family: 'Nunito', 'Segoe UI', sans-serif;
-    background: #e8f4fd;
+    background: #fffde7;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
@@ -21,7 +21,7 @@
 
   .page {
     width: 100%;
-    max-width: 900px;
+    max-width: 760px;
   }
 
   /* ── HEADER ── */
@@ -32,7 +32,7 @@
 
   .ks-badge {
     display: inline-block;
-    background: #1565c0;
+    background: #ff6f00;
     color: white;
     font-size: 11px;
     font-weight: 800;
@@ -46,7 +46,7 @@
   .ict-line {
     font-size: 15px;
     font-weight: 800;
-    color: #1565c0;
+    color: #2e7d32;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 2px;
@@ -55,70 +55,70 @@
   .bingo-title {
     font-size: 72px;
     font-weight: 900;
-    color: #1565c0;
+    color: #2e7d32;
     line-height: 1;
-    text-shadow: 0 4px 0 #90caf9;
+    text-shadow: 0 4px 0 #a5d6a7;
     margin-bottom: 6px;
   }
 
   .subtitle {
     font-size: 13px;
-    color: #555;
+    color: #666;
     font-weight: 600;
   }
 
   /* ── GRID ── */
   .grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 9px;
-    border: 3px solid #42a5f5;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border: 3px solid #66bb6a;
     border-radius: 16px;
-    padding: 11px;
+    padding: 12px;
     background: white;
     margin-bottom: 14px;
   }
 
   .cell {
-    border: 2px solid #bbdefb;
+    border: 2px solid #c8e6c9;
     border-radius: 12px;
-    padding: 11px 9px 9px;
+    padding: 12px 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     text-align: center;
     background: white;
-    min-height: 140px;
+    min-height: 145px;
     position: relative;
     transition: box-shadow 0.2s, border-color 0.2s;
   }
 
   .cell:hover {
-    box-shadow: 0 3px 14px rgba(66,165,245,0.25);
-    border-color: #64b5f6;
+    box-shadow: 0 3px 14px rgba(102,187,106,0.3);
+    border-color: #81c784;
   }
 
   .cell.done {
-    background: #e3f2fd;
-    border-color: #42a5f5;
+    background: #f1f8e9;
+    border-color: #66bb6a;
   }
 
   .emoji {
-    font-size: 30px;
+    font-size: 34px;
     line-height: 1;
     margin-bottom: 2px;
   }
 
   .name {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 800;
-    color: #0d47a1;
+    color: #1b5e20;
     line-height: 1.3;
   }
 
   .desc {
-    font-size: 10px;
+    font-size: 10.5px;
     color: #555;
     line-height: 1.4;
     flex: 1;
@@ -128,14 +128,14 @@
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    font-size: 9.5px;
+    gap: 4px;
+    font-size: 10px;
     font-weight: 700;
-    color: #1565c0;
-    background: #e3f2fd;
-    border: 1.5px solid #64b5f6;
+    color: #1b5e20;
+    background: #e8f5e9;
+    border: 1.5px solid #81c784;
     border-radius: 99px;
-    padding: 3px 10px;
+    padding: 4px 11px;
     text-decoration: none;
     margin-top: auto;
     white-space: nowrap;
@@ -143,43 +143,46 @@
     transition: background 0.15s;
   }
 
-  .btn:hover { background: #bbdefb; }
+  .btn:hover { background: #c8e6c9; }
 
+  /* checkbox */
   .check {
     position: absolute;
     top: 7px;
-    right: 7px;
-    width: 19px;
-    height: 19px;
-    border: 2px solid #90caf9;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #a5d6a7;
     border-radius: 5px;
     cursor: pointer;
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13px;
     color: white;
     user-select: none;
     transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
   }
 
   .cell.done .check {
-    background: #1565c0;
-    border-color: #1565c0;
+    background: #2e7d32;
+    border-color: #2e7d32;
   }
 
   .cell.done .check::after { content: '✓'; }
 
+  /* done overlay */
   .overlay {
     display: none;
     position: absolute;
     inset: 0;
     border-radius: 11px;
-    background: rgba(66,165,245,0.10);
+    background: rgba(102,187,106,0.12);
     align-items: center;
     justify-content: center;
-    font-size: 34px;
+    font-size: 38px;
     pointer-events: none;
   }
 
@@ -199,26 +202,26 @@
 
   .prog-bar {
     height: 10px;
-    background: #bbdefb;
+    background: #dcedc8;
     border-radius: 99px;
     overflow: hidden;
   }
 
   .prog-fill {
     height: 100%;
-    background: linear-gradient(to right, #42a5f5, #1565c0);
+    background: linear-gradient(to right, #66bb6a, #2e7d32);
     border-radius: 99px;
     transition: width 0.4s ease;
   }
 
   /* ── PARENTS NOTE ── */
   .parents-note {
-    background: #e3f2fd;
-    border: 2px solid #90caf9;
+    background: #e8f5e9;
+    border: 2px solid #a5d6a7;
     border-radius: 12px;
     padding: 14px 18px;
     font-size: 11.5px;
-    color: #0d47a1;
+    color: #1b5e20;
     line-height: 1.7;
   }
 
@@ -244,10 +247,11 @@
 
   /* ── PRINT ── */
   @media print {
-    body { background: #e8f4fd; padding: 6mm; }
+    body { background: #fffde7; padding: 8mm; }
     .page { max-width: 100%; }
     .cell { break-inside: avoid; }
-    .btn { border: 1pt solid #64b5f6; }
+    .btn { border: 1pt solid #81c784; }
+    .check { border: 1.5pt solid #a5d6a7; }
   }
 </style>
 </head>
@@ -255,170 +259,143 @@
 <div class="page">
 
   <div class="header">
-    <div class="ks-badge">🚀 Key Stage 2 · Ages 7–11 💡</div>
+    <div class="ks-badge">☀️ Key Stage 1 · Ages 5–7 ☀️</div>
     <div class="ict-line">ICT Summer</div>
     <div class="bingo-title">BINGO</div>
-    <div class="subtitle">Complete activities in any order — tick when done! 🏆</div>
+    <div class="subtitle">Complete activities in any order — tick the box when done! 🌟</div>
   </div>
 
   <div class="grid" id="grid">
 
-    <div class="cell" id="k0">
+    <div class="cell" id="c0">
       <span class="emoji">⌨️</span>
-      <div class="name">Typing Challenge</div>
-      <div class="desc">Level up your typing speed with Jungle Junior!</div>
+      <div class="name">Typing Junior</div>
+      <div class="desc">Type jungle letters with Jungle Junior!</div>
       <a class="btn" href="https://www.edclub.com/library/jungle-junior" target="_blank">▶ Start</a>
-      <div class="check" onclick="toggle('k0')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+      <div class="check" onclick="toggle('c0')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k1">
+    <div class="cell" id="c1">
+      <span class="emoji">🖌️</span>
+      <div class="name">Brush Ninja Typing</div>
+      <div class="desc">Play a fun typing game online!</div>
+      <a class="btn" href="https://brush.ninja/play/typing/" target="_blank">▶ Play</a>
+      <div class="check" onclick="toggle('c1')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
+    </div>
+
+    <div class="cell" id="c2">
       <span class="emoji">🐱</span>
-      <div class="name">Scratch Project</div>
-      <div class="desc">Build your own game or animation in Scratch!</div>
-      <a class="btn" href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank">▶ Create</a>
-      <div class="check" onclick="toggle('k1')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+      <div class="name">Scratch Jr Coding</div>
+      <div class="desc">Make a character move on screen!</div>
+      <a class="btn" href="https://codejr.org/scratchjr/index.html" target="_blank">▶ Play</a>
+      <div class="check" onclick="toggle('c2')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k2">
-      <span class="emoji">🧠</span>
-      <div class="name">Computing Quiz</div>
-      <div class="desc">How many can you get right? Beat your score!</div>
-      <a class="btn" href="https://www.educaplay.com/learning-resources/29600958-computing_quiz_quick_round.html" target="_blank">▶ Quiz</a>
-      <div class="check" onclick="toggle('k2')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+    <div class="cell" id="c3">
+      <span class="emoji">🔒</span>
+      <div class="name">Online Safety</div>
+      <div class="desc">Watch a video & share 2 things you learned!</div>
+      <a class="btn" href="https://www.ceopeducation.co.uk/4_7/4-5/badges/watching-videos/" target="_blank">▶ Watch</a>
+      <div class="check" onclick="toggle('c3')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k3">
+    <div class="cell" id="c4">
+      <span class="emoji">🏔️</span>
+      <div class="name">Mindful Mountain</div>
+      <div class="desc">Play Interland & climb Mindful Mountain!</div>
+      <a class="btn" href="https://beinternetawesome.withgoogle.com/ar_all/interland" target="_blank">▶ Play</a>
+      <div class="check" onclick="toggle('c4')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
+    </div>
+
+    <div class="cell" id="c5">
       <span class="emoji">🐯</span>
-      <div class="name">Visit the Zoo</div>
-      <div class="desc">Watch live cams — spot 5 different animals!</div>
+      <div class="name">Visit the Zoo!</div>
+      <div class="desc">Watch live cameras — spot 3 animals!</div>
       <a class="btn" href="https://zoo.sandiegozoo.org/live-cameras" target="_blank">▶ Watch</a>
-      <div class="check" onclick="toggle('k3')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+      <div class="check" onclick="toggle('c5')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k4">
-      <span class="emoji">🤖</span>
-      <div class="name">Research AI</div>
-      <div class="desc">Use Kiddle — find out what AI is & write 3 facts!</div>
-      <a class="btn" href="https://www.kiddle.co/" target="_blank">▶ Search</a>
-      <div class="check" onclick="toggle('k4')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k5">
+    <div class="cell" id="c6">
       <span class="emoji">🔍</span>
-      <div class="name">Computing Word Search</div>
-      <div class="desc">Find all the hidden computing words!</div>
-      <a class="btn" href="https://www.educaplay.com/learning-resources/8312464-introd_to_computing_system.html" target="_blank">▶ Play</a>
-      <div class="check" onclick="toggle('k5')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+      <div class="name">Research Your Pet</div>
+      <div class="desc">Use Kiddle to find 3 fun facts!</div>
+      <a class="btn" href="https://www.kiddle.co/" target="_blank">▶ Search</a>
+      <div class="check" onclick="toggle('c6')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k6">
-      <span class="emoji">🛡️</span>
-      <div class="name">Be Internet Awesome</div>
-      <div class="desc">Play Interland — cross the Reality River safely!</div>
-      <a class="btn" href="https://beinternetawesome.withgoogle.com/en_us/interland/reality-river" target="_blank">▶ Play</a>
-      <div class="check" onclick="toggle('k6')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+    <div class="cell" id="c7">
+      <span class="emoji">🎥</span>
+      <div class="name">Thinkuknow Safety</div>
+      <div class="desc">Stay safe online with fun activities!</div>
+      <a class="btn" href="https://www.thinkuknow.co.uk/5_7/" target="_blank">▶ Explore</a>
+      <div class="check" onclick="toggle('c7')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k7">
-      <span class="emoji">🎵</span>
-      <div class="name">Make Music Online</div>
-      <div class="desc">Compose your own music with Code.org Music Lab!</div>
-      <a class="btn" href="https://studio.code.org/projects/music/fb20dbb7-9949-41b1-b878-6175d7851a53/edit" target="_blank">▶ Compose</a>
-      <div class="check" onclick="toggle('k7')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+    <div class="cell" id="c8">
+      <span class="emoji">🔢</span>
+      <div class="name">Make Tens!</div>
+      <div class="desc">Play the Make Ten game — can you reach 10?</div>
+      <a class="btn" href="https://toytheater.com/make-ten/" target="_blank">▶ Play</a>
+      <div class="check" onclick="toggle('c8')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k8">
-      <span class="emoji">🧩</span>
-      <div class="name">Programming Puzzle</div>
-      <div class="desc">Learn coding through Blockly Games!</div>
-      <a class="btn" href="https://blockly.games/puzzle?lang=en" target="_blank">▶ Solve</a>
-      <div class="check" onclick="toggle('k8')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+    <div class="cell" id="c9">
+      <span class="emoji">🦕</span>
+      <div class="name">Dino Sort!</div>
+      <div class="desc">Sort the dinos into the right groups!</div>
+      <a class="btn" href="https://ictgames.com/mobilePage/dinoSorts/index.html" target="_blank">▶ Sort</a>
+      <div class="check" onclick="toggle('c9')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
-    <div class="cell" id="k9">
-      <span class="emoji">🎨</span>
-      <div class="name">Make Art with Code</div>
-      <div class="desc">Create animated digital art with Brush Ninja!</div>
-      <a class="btn" href="https://brush.ninja/create/2d-code/#code-ninja-v1=M4UwLg7gBALAUAJxABxAQzLKBvOBIAYwHsAbIhBNAOwBN8AzGqARgAZX8FMBODgXyA" target="_blank">▶ Create</a>
-      <div class="check" onclick="toggle('k9')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k10">
-      <span class="emoji">💬</span>
-      <div class="name">Make a Comic Strip</div>
-      <div class="desc">Design your own digital comic with Brush Ninja!</div>
-      <a class="btn" href="https://brush.ninja/create/comic/" target="_blank">▶ Design</a>
-      <div class="check" onclick="toggle('k10')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k11">
-      <span class="emoji">📊</span>
-      <div class="name">Make a Presentation</div>
-      <div class="desc">5 slides on a topic you love — add images!</div>
-      <a class="btn" href="https://slides.google.com" target="_blank">▶ Build</a>
-      <div class="check" onclick="toggle('k11')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k12">
-      <span class="emoji">🌐</span>
-      <div class="name">Google AI Quest</div>
-      <div class="desc">Explore AI experiments & discover how AI works!</div>
-      <a class="btn" href="https://aiexperiments.withgoogle.com/" target="_blank">▶ Explore</a>
-      <div class="check" onclick="toggle('k12')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k13">
-      <span class="emoji">➗</span>
-      <div class="name">Fraction Wall</div>
-      <div class="desc">Explore fractions visually with the fraction wall!</div>
-      <a class="btn" href="https://www.visnos.com/demos/fraction-wall" target="_blank">▶ Explore</a>
-      <div class="check" onclick="toggle('k13')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
-    </div>
-
-    <div class="cell" id="k14">
+    <div class="cell" id="c10">
       <span class="emoji">🖼️</span>
-      <div class="name">Digital Poster</div>
-      <div class="desc">Design a summer poster on Canva!</div>
-      <a class="btn" href="https://www.canva.com/create/posters/" target="_blank">▶ Design</a>
-      <div class="check" onclick="toggle('k14')" title="Mark as done"></div>
-      <div class="overlay">🏆</div>
+      <div class="name">Living Pixels Art</div>
+      <div class="desc">Create amazing pixel art on screen!</div>
+      <a class="btn" href="https://www.livingpixels.online/" target="_blank">▶ Create</a>
+      <div class="check" onclick="toggle('c10')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
+    </div>
+
+    <div class="cell" id="c11">
+      <span class="emoji">🎨</span>
+      <div class="name">Digital Drawing</div>
+      <div class="desc">Draw your favourite summer memory!</div>
+      <a class="btn" href="https://sketch.io/sketchpad/" target="_blank">▶ Draw</a>
+      <div class="check" onclick="toggle('c11')" title="Mark as done"></div>
+      <div class="overlay">⭐</div>
     </div>
 
   </div>
 
   <div class="prog-wrap">
     <div class="prog-labels">
-      <span>🏆 Activities completed</span>
-      <span id="count">0 / 15</span>
+      <span>⭐ Activities completed</span>
+      <span id="count">0 / 12</span>
     </div>
     <div class="prog-bar"><div class="prog-fill" id="fill" style="width:0%"></div></div>
   </div>
 
   <div class="parents-note">
     <strong>📋 Dear Parent / Guardian</strong>
-    These activities are designed to be completed independently and help your child stay engaged with technology
-    over the summer. Most require a device with internet access. We especially recommend
-    <strong>Be Internet Awesome</strong> by Google — a free, fun programme to help children stay safe online,
-    available in Arabic at:
+    These activities are designed for children to explore independently and enjoy technology over the summer break.
+    Most activities only require a device with an internet connection. Simply click or type each link and encourage
+    your child to tick the box when they finish. We especially recommend <strong>Be Internet Awesome</strong> by Google
+    — a free, fun programme helping children stay safe online, available in Arabic at:
     <a href="https://beinternetawesome.withgoogle.com/ar_ALL" target="_blank">beinternetawesome.withgoogle.com/ar_ALL</a>.
-    Encourage your child to tick off activities as they go — have a wonderful summer! 🚀
+    Have a wonderful summer! 🌟
   </div>
 
-  <div class="footer-note">Tick the ✅ box when you finish each activity — complete all 15 for the ultimate SUPER BINGO! 🚀</div>
+  <div class="footer-note">Tick the ✅ box on each activity when you finish — complete all 12 for a SUPER BINGO! 🏆</div>
 
 </div>
 
@@ -429,8 +406,8 @@
     if (done.has(id)) { done.delete(id); el.classList.remove('done'); }
     else { done.add(id); el.classList.add('done'); }
     const n = done.size;
-    document.getElementById('count').textContent = n + ' / 15';
-    document.getElementById('fill').style.width = (n / 15 * 100) + '%';
+    document.getElementById('count').textContent = n + ' / 12';
+    document.getElementById('fill').style.width = (n / 12 * 100) + '%';
   }
 </script>
 </body>
